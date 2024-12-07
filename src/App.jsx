@@ -1,7 +1,16 @@
-import './App.css';
+import { Suspense } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { RouterConfig } from "./Navigation/RouterConfig";
+import { LoaderPageWithoutBG } from "./assets";
 
 function App() {
-  return <h1 className='text-primary-peach-light_200 bg-primary-yellow-light_50 border-secondary-rosegold-light_200'>Hello world!</h1>;
+  return (
+    <Suspense fallback={<LoaderPageWithoutBG />}>
+      <BrowserRouter>
+        <RouterConfig />
+      </BrowserRouter>
+    </Suspense>
+  );
 }
 
 export default App;
