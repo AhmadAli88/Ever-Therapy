@@ -6,7 +6,6 @@ import { IMAGES } from '../images';
 import { Link } from 'react-router-dom';
 import { Tooltip } from 'react-tooltip';
 import { BsChevronDown } from 'react-icons/bs';
-import { createImageFromInitials } from '../genericAction';
 import { ToastContainer } from 'react-toastify';
 
 export function Header() {

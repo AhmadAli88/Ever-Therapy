@@ -1,7 +1,6 @@
 import React from "react";
 import { PATH } from "../../config";
 import { BsHouseDoor } from "react-icons/bs";
-import { GoPrimitiveDot } from "react-icons/go";
 
 export const SidebarData = [
   {
