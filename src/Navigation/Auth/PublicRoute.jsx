@@ -1,4 +1,5 @@
-import React from "react";
+
+import PropTypes from "prop-types";
 import { LoaderPageWithoutBG } from "../../assets";
 
 function PublicRoute({ children }) {
@@ -15,4 +16,7 @@ function PublicRoute({ children }) {
   }
 }
 
+PublicRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 export default PublicRoute;

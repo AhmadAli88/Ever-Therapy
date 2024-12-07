@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import SubMenu from "./SubMenu";
-import "../js/jquery.slimscroll";
-import $ from "jquery";
 import { SidebarData } from "./SideBarData";
-
+import $ from "jquery";
 export default function Sidebar() {
   useEffect(() => {
     let $slimScrolls = $(".slimscroll");
