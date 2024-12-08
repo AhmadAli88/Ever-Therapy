@@ -13,6 +13,12 @@ export const INITIAL_VALUE = [
     route: 'PublicRoute',
   },
   {
+    path: PATH.RESET_PASSWORD,
+    page: <WEB_PAGES.RESET_PASSWORD />,
+    route: 'PublicRoute',
+  },
+
+  {
     path: PATH.DASHBOARD,
     page: <WEB_PAGES.DASHBOARD />,
     route: 'PrivateRoute',

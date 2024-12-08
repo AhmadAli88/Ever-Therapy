@@ -4,6 +4,7 @@ const SignIn = React.lazy(() => import('../pages/SignIn'));
 const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const LandingPage = React.lazy(() => import('../pages/LandingPage'));
 const ForgotPassword = React.lazy(() => import('../pages/ForgotPassword'));
+const ResetPassword = React.lazy(() => import('../pages/ResetPassword'));
 
 const WEB_PAGES = {
   SIGN_IN: SignIn,
@@ -11,6 +12,7 @@ const WEB_PAGES = {
   LANDING_PAGE: LandingPage,
   NO_PAGE: NoPage,
   FORGOT_PASSWORD: ForgotPassword,
+  RESET_PASSWORD: ResetPassword,
 };
 
 export { WEB_PAGES };

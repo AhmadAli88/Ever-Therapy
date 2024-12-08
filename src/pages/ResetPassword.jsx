@@ -2,7 +2,7 @@ import { InputAdornment, TextField } from '@mui/material';
 import { IMAGES } from '../assets/images';
 import { MdOutlineMailOutline } from 'react-icons/md';
 
-const ForgotPassword = () => {
+const ResetPassword = () => {
   return (
     <div>
       <div className='grid grid-cols-12 gap-4'>
@@ -19,9 +19,25 @@ const ForgotPassword = () => {
 
           <div className='flex flex-col gap-4 lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
             <TextField
-              type='text'
-              id='email'
-              label='Email'
+              type='password'
+              id='password'
+              label='Password'
+              variant='outlined'
+              className='parent_Field text-secondary-darkgray-light_400'
+              slotProps={{
+                input: {
+                  startAdornment: (
+                    <InputAdornment position='start'>
+                      <MdOutlineMailOutline size={20} />
+                    </InputAdornment>
+                  ),
+                },
+              }}
+            />
+            <TextField
+              type='password'
+              id='password'
+              label='Confirm Password'
               variant='outlined'
               className='parent_Field text-secondary-darkgray-light_400'
               slotProps={{
@@ -38,7 +54,7 @@ const ForgotPassword = () => {
 
           <div className='flex justify-center items-center gap-4 flex-col lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
             <button className='bg-primary-peach w-full rounded-full text-white_color p-1xs'>
-              Send Email
+              Change your password
             </button>
           </div>
         </div>
@@ -56,4 +72,4 @@ const ForgotPassword = () => {
   );
 };
 
-export default ForgotPassword;
+export default ResetPassword;

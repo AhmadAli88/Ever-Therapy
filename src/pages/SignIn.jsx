@@ -122,7 +122,7 @@ const SignIn = () => {
             <img
               src={IMAGES.BANNNER}
               alt=''
-              className='w-full h-[750px] lg:block sm:hidden hidden'
+              className='w-full h-screen lg:block sm:hidden hidden'
             />
           </div>
         </div>
