@@ -1,3 +1,14 @@
-.parent_emailField .css-1blp12k-MuiInputBase-root-MuiOutlinedInput-root {
+* {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
+.parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
     border-radius: 50px !important;
+}
+.checkbox_spacing{
+    padding-left: 0 !important;
 }
