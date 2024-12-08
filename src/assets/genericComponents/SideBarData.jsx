@@ -1,4 +1,4 @@
-import React from "react";
+
 import { PATH } from "../../config";
 import { BsHouseDoor } from "react-icons/bs";
 
@@ -13,13 +13,13 @@ export const SidebarData = [
         title: "Link 1",
         path: "",
         pathList: [],
-        icon: <GoPrimitiveDot className="me-2 font-16" />,
+        icon: <BsHouseDoor className="me-2 font-16" />,
       },
       {
         title: "Link 2",
         path: "",
         pathList: [],
-        icon: <GoPrimitiveDot className="me-2 font-16" />,
+        icon: <BsHouseDoor className="me-2 font-16" />,
       },
     ],
   },
@@ -39,13 +39,13 @@ export const SidebarData = [
             title: "Link 1",
             path: "",
             pathList: [],
-            icon: <GoPrimitiveDot className="me-2 font-16" />,
+            icon: <BsHouseDoor className="me-2 font-16" />,
           },
           {
             title: "Link 2",
             path: "",
             pathList: [],
-            icon: <GoPrimitiveDot className="me-2 font-16" />,
+            icon: <BsHouseDoor className="me-2 font-16" />,
           },
         ],
       },

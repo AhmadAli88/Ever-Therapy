@@ -1,5 +1,4 @@
 
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { WEB_PAGES } from "../components";
 import { PATH } from "../config";
@@ -10,30 +9,36 @@ import { INITIAL_VALUE } from "./DataRouteConfig";
 
 export const RouterConfig = () => {
   return (
-    <div>
-      <Routes>
-        {INITIAL_VALUE?.map((item, index) => (
-          <React.Fragment key={index}>
-            {item?.route === "PublicRoute" ? (
-              <Route
-                path={item?.path}
-                element={<PublicRoute>{item?.page}</PublicRoute>}
-              ></Route>
-            ) : item?.route === "ModerateRoute" ? (
-              <Route
-                path={item?.path}
-                element={<ModerateRoute>{item?.page}</ModerateRoute>}
-              ></Route>
-            ) : (
-              <Route
-                path={item?.path}
-                element={<PrivateRoute>{item?.page}</PrivateRoute>}
-              ></Route>
-            )}
-          </React.Fragment>
-        ))}
-        <Route path={PATH.NOPAGE} element={<WEB_PAGES.NOPAGE />}></Route>
-      </Routes>
-    </div>
+    <Routes>
+      {INITIAL_VALUE.map((route, index) => {
+        if (route.route === "PublicRoute") {
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              element={<PublicRoute>{route.page}</PublicRoute>}
+            />
+          );
+        }
+        if (route.route === "ModerateRoute") {
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              element={<ModerateRoute>{route.page}</ModerateRoute>}
+            />
+          );
+        }
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            element={<PrivateRoute>{route.page}</PrivateRoute>}
+          />
+        );
+      })}
+      <Route path={PATH.NO_PAGE} element={<WEB_PAGES.NO_PAGE />} />
+      <Route path="*" element={<WEB_PAGES.NO_PAGE />} />
+    </Routes>
   );
 };
