@@ -6,6 +6,7 @@ const PATH = {
   SIGN_IN: '/',
   DASHBOARD: '/dashboard',
   LANDING_PAGE: '/landing-page',
+  FORGOT_PASSWORD: '/forgot-password',
   NO_PAGE: '/no-page',
 };
 

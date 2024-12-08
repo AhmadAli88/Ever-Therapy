@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
@@ -63,7 +64,7 @@ export default {
             light_200: '#CCCCCC',
             light_300: '#B3B3B3',
             light_400: '#999999',
-            dark_600: '#CCCCCC',
+            dark_600: '#666666',
             dark_700: '#4D4D4D',
             dark_800: '#333333',
             dark_900: '#1A1A1A',
@@ -136,21 +137,33 @@ export default {
         '4xl': '4rem', // Huge padding
       },
       fontSize: {
-        '3xs': '0.5rem',   // Very small (8px)
+        '3xs': '0.5rem', // Very small (8px)
         '2xs': '0.625rem', // Extra small (10px)
-        xs: '0.75rem',     // Small (12px)
-        sm: '0.875rem',    // Smallish (14px)
-        base: '1rem',      // Default body text (16px)
-        lg: '1.125rem',    // Large body text (18px)
-        xl: '1.25rem',     // Small heading (20px)
-        '2xl': '1.5rem',   // Medium heading (24px)
+        xs: '0.75rem', // Small (12px)
+        sm: '0.875rem', // Smallish (14px)
+        base: '1rem', // Default body text (16px)
+        lg: '1.125rem', // Large body text (18px)
+        xl: '1.25rem', // Small heading (20px)
+        '2xl': '1.5rem', // Medium heading (24px)
         '3xl': '1.875rem', // Large heading (30px)
-        '4xl': '2.25rem',  // Extra-large heading (36px)
-        '5xl': '3rem',     // Huge heading (48px)
-        '6xl': '3.75rem',  // Giant heading (60px)
-        '7xl': '4.5rem',   // Extra giant heading (72px)
-        '8xl': '6rem',     // Massive (96px)
-        '9xl': '8rem',     // Ultra massive (128px)
+        '4xl': '2.25rem', // Extra-large heading (36px)
+        '5xl': '3rem', // Huge heading (48px)
+        '6xl': '3.75rem', // Giant heading (60px)
+        '7xl': '4.5rem', // Extra giant heading (72px)
+        '8xl': '6rem', // Massive (96px)
+        '9xl': '8rem', // Ultra massive (128px)
+      },
+      fontWeight: {
+        hairline: '100', // Extra thin
+        thin: '200', // Thin
+        light: '300', // Light
+        normal: '400', // Normal
+        medium: '500', // Medium
+        semibold: '600', // Semi-bold
+        bold: '700', // Bold
+        extrabold: '800', // Extra bold
+        black: '900', // Black
+        extrablack: '950', // Extra black
       },
     },
   },

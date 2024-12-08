@@ -1,20 +1,25 @@
-import { PATH } from "../config";
-import { WEB_PAGES } from "../components";
+import { PATH } from '../config';
+import { WEB_PAGES } from '../components';
 
 export const INITIAL_VALUE = [
   {
     path: PATH.SIGN_IN,
     page: <WEB_PAGES.SIGN_IN />,
-    route: "PublicRoute"
+    route: 'PublicRoute',
+  },
+  {
+    path: PATH.FORGOT_PASSWORD,
+    page: <WEB_PAGES.FORGOT_PASSWORD />,
+    route: 'PublicRoute',
   },
   {
     path: PATH.DASHBOARD,
     page: <WEB_PAGES.DASHBOARD />,
-    route: "PrivateRoute"
+    route: 'PrivateRoute',
   },
   {
     path: PATH.LANDING_PAGE,
     page: <WEB_PAGES.LANDING_PAGE />,
-    route: "ModerateRoute"
-  }
+    route: 'ModerateRoute',
+  },
 ];

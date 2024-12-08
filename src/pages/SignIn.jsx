@@ -1,4 +1,4 @@
-import { Checkbox, InputAdornment, TextField, Typography } from '@mui/material';
+import { Checkbox, Divider, InputAdornment, TextField } from '@mui/material';
 import { IMAGES } from '../assets/images';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { IoLockClosedOutline } from 'react-icons/io5';
@@ -15,11 +15,12 @@ const SignIn = () => {
             <img src={IMAGES.LOGO} alt='' />
           </div>
           <div>
-            <div className='text-3xl text-center'>
+            <div className='text-3xl text-center text-secondary-darkgray-dark_600 font-bold'>
               SignIn
             </div>
-            <div>
-              or <span className='text-primary-peach'>create an account</span> if not registered yet
+            <div className='text-base text-secondary-darkgray'>
+              or <span className='text-primary-peach'>create an account</span>{' '}
+              if not registered yet
             </div>
           </div>
           {/* <TextField
@@ -43,7 +44,7 @@ const SignIn = () => {
               id='email'
               label='Email'
               variant='outlined'
-              className='parent_Field'
+              className='parent_Field text-secondary-darkgray-light_400'
               slotProps={{
                 input: {
                   startAdornment: (
@@ -76,15 +77,34 @@ const SignIn = () => {
           <div className='flex items-center justify-between lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
             <div>
               <Checkbox {...label} className='checkbox_spacing' />
-              <span>Remember me</span>
+              <span className='text-secondary-darkgray-light_400 text-xs'>
+                Remember me
+              </span>
             </div>
-            <div>Forgot Password</div>
+            <div className='text-[#3172F0] text-xs'>Forgot Password</div>
           </div>
 
           <div className='flex justify-center items-center gap-4 flex-col lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
             <button className='bg-primary-peach w-full rounded-full text-white_color p-1xs'>
               Login
             </button>
+
+            <Divider
+              variant='middle'
+              textAlign='center'
+              className='w-full'
+              sx={{
+                '&::before, &::after': {
+                  borderColor: '#F2F2F2', // Custom line color
+                  // borderWidth: '2px', // Custom line thickness
+                },
+                color: '#595959', // Text color
+                fontSize: '14px'
+                // fontWeight: 'bold', // Text weight
+              }}
+            >
+              or Login with
+            </Divider>
 
             <button className='bg-secondary-brightgray-light_50 w-full rounded-full text-secondary-darkgray p-1xs flex justify-center items-center gap-3'>
               <FcGoogle size={20} />
