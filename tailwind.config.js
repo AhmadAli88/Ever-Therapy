@@ -111,13 +111,29 @@ export default {
             dark_900: '#28100B',
             dark_950: '#140805', // Darker shade
           },
-          white: {
-            DEFAULT: '#FFFFFF', // Your main white color
-          },
-          black: {
-            DEFAULT: '#000000', // Your main black color
-          },
         },
+
+        white_color: {
+          DEFAULT: '#FFFFFF', // Your main white color
+        },
+        black_color: {
+          DEFAULT: '#000000', // Your main black color
+        },
+      },
+      padding: {
+        '5xs': '0.125rem', // Custom small padding
+        '4xs': '0.25rem',
+        '3xs': '0.375rem',
+        '2xs': '0.5rem',
+        '1xs': '0.625rem', // Tiny padding
+        xs: '0.75rem', // Extra small padding
+        sm: '1rem', // Small padding
+        md: '1.25rem', // Medium padding
+        lg: '1.5rem', // Large padding
+        xl: '2rem', // Extra large padding
+        '2xl': '2.5rem',
+        '3xl': '3rem',
+        '4xl': '4rem', // Huge padding
       },
     },
   },
