@@ -3,12 +3,40 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
 
 .parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
     border-radius: 50px !important;
 }
+.parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root{
+    border-radius: 50px !important;
+}
 .checkbox_spacing{
     padding-left: 0 !important;
+}
+/* .custom_height{
+    height: calc(100vh - 300px);
+} */
+ @media only screen and (max-width: 768px) {
+    .parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root{
+        height: 40px;
+    }
+    
+.parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 40px;
+}
+}
+
+@media only screen and (max-width: 992px) {
+    .parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root{
+        height: 45px;
+    }
+    
+.parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 45px;
+}
 }

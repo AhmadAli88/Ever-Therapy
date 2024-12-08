@@ -135,6 +135,23 @@ export default {
         '3xl': '3rem',
         '4xl': '4rem', // Huge padding
       },
+      fontSize: {
+        '3xs': '0.5rem',   // Very small (8px)
+        '2xs': '0.625rem', // Extra small (10px)
+        xs: '0.75rem',     // Small (12px)
+        sm: '0.875rem',    // Smallish (14px)
+        base: '1rem',      // Default body text (16px)
+        lg: '1.125rem',    // Large body text (18px)
+        xl: '1.25rem',     // Small heading (20px)
+        '2xl': '1.5rem',   // Medium heading (24px)
+        '3xl': '1.875rem', // Large heading (30px)
+        '4xl': '2.25rem',  // Extra-large heading (36px)
+        '5xl': '3rem',     // Huge heading (48px)
+        '6xl': '3.75rem',  // Giant heading (60px)
+        '7xl': '4.5rem',   // Extra giant heading (72px)
+        '8xl': '6rem',     // Massive (96px)
+        '9xl': '8rem',     // Ultra massive (128px)
+      },
     },
   },
   plugins: [],

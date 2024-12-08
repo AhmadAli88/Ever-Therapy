@@ -1,4 +1,4 @@
-import { Checkbox, InputAdornment, TextField } from '@mui/material';
+import { Checkbox, InputAdornment, TextField, Typography } from '@mui/material';
 import { IMAGES } from '../assets/images';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { IoLockClosedOutline } from 'react-icons/io5';
@@ -9,13 +9,20 @@ const SignIn = () => {
 
   return (
     <div>
-      <div className='container mx-auto p-4 custom_height'>
-        <div className='grid grid-cols-12 gap-4'>
-          <div className='lg:col-span-6 md:col-span-6 sm:col-span-12 col-span-12 flex flex-col justify-center items-center h-screen gap-4'>
-            <div>
-              <img src={IMAGES.LOGO} alt='' />
+      <div className='grid grid-cols-12 gap-4'>
+        <div className='lg:col-span-6 md:col-span-12 sm:col-span-12 col-span-12 flex flex-col justify-center items-center h-screen gap-4'>
+          <div>
+            <img src={IMAGES.LOGO} alt='' />
+          </div>
+          <div>
+            <div className='text-3xl text-center'>
+              SignIn
             </div>
-            {/* <TextField
+            <div>
+              or <span className='text-primary-peach'>create an account</span> if not registered yet
+            </div>
+          </div>
+          {/* <TextField
               type='text'
               id='email'
               label='Email'
@@ -30,13 +37,13 @@ const SignIn = () => {
                 ),
               }}
             /> */}
+          <div className='flex flex-col gap-4 lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
             <TextField
               type='text'
               id='email'
               label='Email'
               variant='outlined'
               className='parent_Field'
-              fullWidth
               slotProps={{
                 input: {
                   startAdornment: (
@@ -64,32 +71,39 @@ const SignIn = () => {
                 },
               }}
             />
-            <div className='flex items-center justify-between w-full'>
-              <div>
-                <Checkbox {...label} className='checkbox_spacing' />
-                <span>Remember me</span>
-              </div>
-              <div>Forgot Password</div>
-            </div>
-
-            <div className='flex justify-center items-center w-full gap-4 flex-col'>
-              <button className='bg-primary-peach w-full rounded-full text-white_color p-1xs'>
-                Login
-              </button>
-
-              <button className='bg-secondary-brightgray-light_50 w-full rounded-full text-secondary-darkgray p-1xs flex justify-center items-center gap-3'>
-                <FcGoogle size={20} />
-                <span>Continue with Google</span>
-              </button>
-
-              <button className='bg-secondary-brightgray-light_50 w-full rounded-full  text-secondary-darkgray p-1xs flex justify-center items-center gap-3'>
-                <FaApple />
-                <span> Continue with Apple</span>
-              </button>
-            </div>
           </div>
-          <div className='lg:col-span-6 md:col-span-6 sm:col-span-12 col-span-12'>
-            <img src={IMAGES.BANNNER} alt="" />
+
+          <div className='flex items-center justify-between lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
+            <div>
+              <Checkbox {...label} className='checkbox_spacing' />
+              <span>Remember me</span>
+            </div>
+            <div>Forgot Password</div>
+          </div>
+
+          <div className='flex justify-center items-center gap-4 flex-col lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
+            <button className='bg-primary-peach w-full rounded-full text-white_color p-1xs'>
+              Login
+            </button>
+
+            <button className='bg-secondary-brightgray-light_50 w-full rounded-full text-secondary-darkgray p-1xs flex justify-center items-center gap-3'>
+              <FcGoogle size={20} />
+              <span>Continue with Google</span>
+            </button>
+
+            <button className='bg-secondary-brightgray-light_50 w-full rounded-full  text-secondary-darkgray p-1xs flex justify-center items-center gap-3'>
+              <FaApple />
+              <span> Continue with Apple</span>
+            </button>
+          </div>
+        </div>
+        <div className='lg:col-span-6 md:col-span-6 sm:col-span-12 col-span-12'>
+          <div className='flex justify-end items-end w-100'>
+            <img
+              src={IMAGES.BANNNER}
+              alt=''
+              className='w-full h-[750px] lg:block sm:hidden hidden'
+            />
           </div>
         </div>
       </div>
