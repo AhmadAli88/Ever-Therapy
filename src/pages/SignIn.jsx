@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import { Checkbox, Divider, InputAdornment, TextField } from '@mui/material';
 import { IMAGES } from '../assets/images';
 import { MdOutlineMailOutline } from 'react-icons/md';
@@ -8,22 +9,25 @@ import { Link } from 'react-router';
 import { toast } from 'react-toastify';
 import { TOASTER_STYLING_VALUES } from '../config';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { LoaderCenter } from '../assets/genericComponents/Loader';
 const SignIn = () => {
+  const { handleSubmit, register, formState: { errors }, } = useForm();
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
   const [toasterLoader, setToasterLoader] = useState(false);
   function onSubmit(data) {
-    if (data.email === "user@gmail.com") {
-      const userData = { ...data, token: "token", userType: "user" };
-      localStorage.setItem("dummy_user", JSON.stringify(userData));
+    debugger
+    if (data.email === 'user@gmail.com') {
+      const userData = { ...data, token: 'token', userType: 'user' };
+      localStorage.setItem('dummy_user', JSON.stringify(userData));
       setToasterLoader(true);
       // Redirect to the dashboard using React Router
-      window.location.href = "/dashboard";
+      window.location.href = '/dashboard';
     } else {
-      toast.error("Invalid Email or Password", TOASTER_STYLING_VALUES);
+      toast.error('Invalid Email or Password', TOASTER_STYLING_VALUES);
       setToasterLoader(false);
     }
   }
-
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -37,7 +41,11 @@ const SignIn = () => {
               SignIn
             </div>
             <div className='text-base text-secondary-darkgray'>
-              or <span className='text-primary-peach'> <Link to='/sign-up'>create an account</Link></span>{' '}
+              or{' '}
+              <span className='text-primary-peach'>
+                {' '}
+                <Link to='/sign-up'>create an account</Link>
+              </span>{' '}
               if not registered yet
             </div>
           </div>
@@ -72,6 +80,9 @@ const SignIn = () => {
                   ),
                 },
               }}
+              {...register('email', { required: 'Email is required' })}
+              error={!!errors.email}
+              helperText={errors.email?.message}
             />
             <TextField
               type='password'
@@ -89,6 +100,9 @@ const SignIn = () => {
                   ),
                 },
               }}
+              {...register('password', { required: 'Password is required' })}
+              error={!!errors.password}
+              helperText={errors.password?.message}
             />
           </div>
 
@@ -100,15 +114,18 @@ const SignIn = () => {
               </span>
             </div>
             <Link to='/forgot-password'>
-            <div className='text-[#3172F0] text-xs'>Forgot Password</div>
+              <div className='text-[#3172F0] text-xs'>Forgot Password</div>
             </Link>
-           
           </div>
 
           <div className='flex justify-center items-center gap-4 flex-col lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
-            <button className='bg-primary-peach w-full rounded-full text-white_color p-1xs'>
-              Login
-            </button>
+            {!toasterLoader ? (
+              <button className='bg-primary-peach w-full rounded-full text-white_color p-1xs'>
+                Login
+              </button>
+            ) : (
+              <LoaderCenter />
+            )}
 
             <Divider
               variant='middle'
@@ -120,7 +137,7 @@ const SignIn = () => {
                   // borderWidth: '2px', // Custom line thickness
                 },
                 color: '#595959', // Text color
-                fontSize: '14px'
+                fontSize: '14px',
                 // fontWeight: 'bold', // Text weight
               }}
             >

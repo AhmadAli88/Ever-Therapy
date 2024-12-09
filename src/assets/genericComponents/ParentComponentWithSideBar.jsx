@@ -1,14 +1,23 @@
-import React from "react";
-import { Header } from ".";
+// ParentComponentWithSideBar.jsx
+import { useState } from "react";
+import { Header } from "./Header";
 import Sidebar from "./SideBar";
-// import swal from 'sweetalert2'
-export function ParentComponentWithSideBar({ children, ...rest }) {
+
+export function ParentComponentWithSideBar({ children }) {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
-    <div className="main-wrapper">
-      <Header />
-      <Sidebar />
-      <div className="page-wrapper">
-        <div className="container-fluid">{children}</div>
+    <div className="min-h-screen bg-gray-100">
+      <Header toggleSidebar={toggleSidebar} />
+      <div className="flex">
+        <Sidebar isOpen={sidebarOpen} />
+        <main className={`flex-1 p-8 transition-all duration-300 ${sidebarOpen ? 'ml-64' : 'ml-0'}`}>
+          {children}
+        </main>
       </div>
     </div>
   );

@@ -1,70 +1,61 @@
-import React, { useEffect } from "react";
-import SubMenu from "./SubMenu";
-import { SidebarData } from "./SideBarData";
-import $ from "jquery";
-export default function Sidebar() {
-  useEffect(() => {
-    let $slimScrolls = $(".slimscroll");
+// Sidebar.jsx
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { SidebarData } from './SideBarData';
 
-    if ($slimScrolls.length > 0) {
-      $slimScrolls.slimScroll({
-        height: "auto",
-        width: "100%",
-        position: "right",
-        size: "7px",
-        color: "#ccc",
-        wheelStep: 10,
-        touchScrollStep: 100,
-      });
-      var wHeight = $(window).height() - 60;
-      $slimScrolls.height(wHeight);
-      $(".sidebar .slimScrollDiv").height(wHeight);
-      $(window).resize(function () {
-        var rHeight = $(window).height() - 60;
-        $slimScrolls.height(rHeight);
-        $(".sidebar .slimScrollDiv").height(rHeight);
-      });
-    }
+export default function Sidebar({ isOpen }) {
+  const location = useLocation();
 
-    function init() {
-      $("#sidebar-menu a").on("click", function (e) {
-        if ($(this).parent().hasClass("submenu")) {
-          e.preventDefault();
-        }
-        if (!$(this).hasClass("subdrop")) {
-          $("ul", $(this).parents("ul:first")).slideUp(350);
-          $("a", $(this).parents("ul:first")).removeClass("subdrop");
-          $(this).next("ul").slideDown(350);
-          $(this).addClass("subdrop");
-        } else if ($(this).hasClass("subdrop")) {
-          $(this).removeClass("subdrop");
-          $(this).next("ul").slideUp(350);
-        }
-      });
-      $("#sidebar-menu ul li.submenu a.active")
-        .parents("li:last")
-        .children("a:first")
-        .addClass("active")
-        .trigger("click");
-    }
-
-    // Sidebar Initiate
-    init();
-  }, []);
+  const renderNavItem = (item) => {
+    const isActive = location.pathname === item.path;
+    
+    return (
+      <div key={item.title} className="mb-2">
+        <Link
+          to={item.path || '#'}
+          className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-colors ${
+            isActive
+              ? 'bg-blue-100 text-blue-700'
+              : 'text-gray-600 hover:bg-gray-100'
+          }`}
+        >
+          {item.icon && <span className="w-5 h-5">{item.icon}</span>}
+          <span className="font-medium">{item.title}</span>
+        </Link>
+        
+        {item.subNav && (
+          <div className="ml-4 mt-2 space-y-2">
+            {item.subNav.map((subItem) => (
+              <Link
+                key={subItem.title}
+                to={subItem.path || '#'}
+                className={`flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
+                  location.pathname === subItem.path
+                    ? 'bg-blue-50 text-blue-700'
+                    : 'text-gray-600 hover:bg-gray-50'
+                }`}
+              >
+                {subItem.icon && (
+                  <span className="w-4 h-4">{subItem.icon}</span>
+                )}
+                <span className="text-sm">{subItem.title}</span>
+              </Link>
+            ))}
+          </div>
+        )}
+      </div>
+    );
+  };
 
   return (
-    <div className="sidebar shadow" id="sidebar">
-      <div className="sidebar-inner slimscroll">
-        <div id="sidebar-menu" className="sidebar-menu">
-          <ul className="sidebar-tabs-padding">
-            <React.Fragment>
-              {SidebarData?.map((item, index) => {
-                return <SubMenu key={index} item={item} />;
-              })}
-            </React.Fragment>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <aside
+      className={`fixed left-0 top-[73px] h-[calc(100vh-73px)] bg-white shadow-lg transition-all duration-300 ${
+        isOpen ? 'w-64' : 'w-0'
+      } overflow-hidden`}
+    >
+      <nav className="p-4 h-full overflow-y-auto">
+        {SidebarData.map(renderNavItem)}
+      </nav>
+    </aside>
   );
 }
