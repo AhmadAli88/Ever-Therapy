@@ -3,6 +3,12 @@ import { WEB_PAGES } from '../components';
 
 export const INITIAL_VALUE = [
   {
+
+    path: PATH.SIGN_UP,
+    page: <WEB_PAGES.SIGN_UP />,
+    route: 'PublicRoute',
+  },
+  {
     path: PATH.SIGN_IN,
     page: <WEB_PAGES.SIGN_IN />,
     route: 'PublicRoute',

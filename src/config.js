@@ -8,6 +8,7 @@ const PATH = {
   LANDING_PAGE: '/landing-page',
   FORGOT_PASSWORD: '/forgot-password',
   RESET_PASSWORD: '/reset-password',
+  SIGN_UP: '/sign-up',
   NO_PAGE: '/no-page',
 };
 
