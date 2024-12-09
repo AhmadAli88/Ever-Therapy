@@ -4,9 +4,11 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { extractDateTimeComponents } from '../assets/genericAction';
 import moment from 'moment';
-import MyTable from '../assets/genericComponents/Table';
+import MyTable from '../components/Table';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Button from '../components/Button';
 
 const Dashboard = () => {
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -17,40 +19,40 @@ const Dashboard = () => {
   const data = [
     {
       id: 1,
-      patient: "John Doe",
-      doctor: "Dr. Sarah Smith",
-      startDateTime: "2024-12-09T09:30:00",
-      amount: "150",
-      donationAmount: "10",
-      status: "Upcoming"
+      patient: 'John Doe',
+      doctor: 'Dr. Sarah Smith',
+      startDateTime: '2024-12-09T09:30:00',
+      amount: '150',
+      donationAmount: '10',
+      status: 'Upcoming',
     },
     {
       id: 2,
-      patient: "Jane Smith",
-      doctor: "Dr. Michael Johnson",
-      startDateTime: "2024-12-09T11:00:00",
-      amount: "200",
-      donationAmount: "0",
-      status: "Completed"
+      patient: 'Jane Smith',
+      doctor: 'Dr. Michael Johnson',
+      startDateTime: '2024-12-09T11:00:00',
+      amount: '200',
+      donationAmount: '0',
+      status: 'Completed',
     },
     {
       id: 3,
-      patient: "Robert Brown",
-      doctor: "Dr. Emily Wilson",
-      startDateTime: "2024-12-09T14:15:00",
-      amount: "175",
-      donationAmount: "5",
-      status: "Missed"
+      patient: 'Robert Brown',
+      doctor: 'Dr. Emily Wilson',
+      startDateTime: '2024-12-09T14:15:00',
+      amount: '175',
+      donationAmount: '5',
+      status: 'Missed',
     },
     {
       id: 4,
-      patient: "Maria Garcia",
-      doctor: "Dr. James Anderson",
-      startDateTime: "2024-12-09T16:45:00",
-      amount: "125",
-      donationAmount: "15",
-      status: "Booked"
-    }
+      patient: 'Maria Garcia',
+      doctor: 'Dr. James Anderson',
+      startDateTime: '2024-12-09T16:45:00',
+      amount: '125',
+      donationAmount: '15',
+      status: 'Booked',
+    },
   ];
 
   const handleOpenUserMenu = (event) => {
@@ -86,7 +88,9 @@ const Dashboard = () => {
       header: 'Appt Date',
       accessorKey: 'startDateTime',
       Cell: ({ cell }) => {
-        const { date } = extractDateTimeComponents(cell.row.original.startDateTime);
+        const { date } = extractDateTimeComponents(
+          cell.row.original.startDateTime
+        );
         return <div>{moment(date).format('MM/DD/YY')}</div>;
       },
     },
@@ -95,7 +99,9 @@ const Dashboard = () => {
       header: 'Appt Time',
       accessorKey: 'startDateTime',
       Cell: ({ cell }) => {
-        const { time } = extractDateTimeComponents(cell.row.original.startDateTime);
+        const { time } = extractDateTimeComponents(
+          cell.row.original.startDateTime
+        );
         return <div>{time}</div>;
       },
     },
@@ -104,7 +110,9 @@ const Dashboard = () => {
       header: 'Appt Fee',
       accessorKey: 'amount',
       Cell: ({ cell }) => {
-        const total = Number(cell.row.original.amount) + Number(cell.row.original.donationAmount);
+        const total =
+          Number(cell.row.original.amount) +
+          Number(cell.row.original.donationAmount);
         return <div>$ {total}</div>;
       },
     },
@@ -146,6 +154,18 @@ const Dashboard = () => {
   return (
     <div className='mt-[4rem]'>
       <>
+        <div className='flex justify-end items-end'>
+          <Button
+            className='flex justify-center items-center'
+            backgroundColor='#FBBE84'
+            width='150px'
+            borderRadius='50px'
+            height='30px'
+          >
+            Add Patient
+          </Button>
+        </div>
+
         <MyTable
           columns={columns}
           data={data}
@@ -231,6 +251,12 @@ const StyledMenu = styled(Menu)`
     }
   }
 `;
-Dashboard
+Dashboard.propTypes = {
+  cell: PropTypes.shape({
+    row: PropTypes.shape({
+      original: PropTypes.object.isRequired,
+    }).isRequired,
+  }).isRequired,
+};
 
 export default Dashboard;
