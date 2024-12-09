@@ -45,7 +45,7 @@ const ForgotPassword = () => {
         <div className='lg:col-span-6 md:col-span-6 sm:col-span-12 col-span-12'>
           <div className='flex justify-end items-end w-100'>
             <img
-              src={IMAGES.BANNNER}
+              src={IMAGES.PINK_BANNER}
               alt=''
               className='w-full h-screen lg:block sm:hidden hidden'
             />

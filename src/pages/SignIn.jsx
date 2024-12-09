@@ -4,11 +4,29 @@ import { MdOutlineMailOutline } from 'react-icons/md';
 import { IoLockClosedOutline } from 'react-icons/io5';
 import { FcGoogle } from 'react-icons/fc';
 import { FaApple } from 'react-icons/fa';
+import { Link } from 'react-router';
+import { toast } from 'react-toastify';
+import { TOASTER_STYLING_VALUES } from '../config';
+import { useState } from 'react';
 const SignIn = () => {
   const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  const [toasterLoader, setToasterLoader] = useState(false);
+  function onSubmit(data) {
+    if (data.email === "user@gmail.com") {
+      const userData = { ...data, token: "token", userType: "user" };
+      localStorage.setItem("dummy_user", JSON.stringify(userData));
+      setToasterLoader(true);
+      // Redirect to the dashboard using React Router
+      window.location.href = "/dashboard";
+    } else {
+      toast.error("Invalid Email or Password", TOASTER_STYLING_VALUES);
+      setToasterLoader(false);
+    }
+  }
+
 
   return (
-    <div>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className='grid grid-cols-12 gap-4'>
         <div className='lg:col-span-6 md:col-span-12 sm:col-span-12 col-span-12 flex flex-col justify-center items-center h-screen gap-4'>
           <div>
@@ -19,7 +37,7 @@ const SignIn = () => {
               SignIn
             </div>
             <div className='text-base text-secondary-darkgray'>
-              or <span className='text-primary-peach'>create an account</span>{' '}
+              or <span className='text-primary-peach'> <Link to='/sign-up'>create an account</Link></span>{' '}
               if not registered yet
             </div>
           </div>
@@ -81,7 +99,10 @@ const SignIn = () => {
                 Remember me
               </span>
             </div>
+            <Link to='/forgot-password'>
             <div className='text-[#3172F0] text-xs'>Forgot Password</div>
+            </Link>
+           
           </div>
 
           <div className='flex justify-center items-center gap-4 flex-col lg:w-[500px] md:w-[400px] sm:w-[350px] w-[350px]'>
@@ -127,7 +148,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
