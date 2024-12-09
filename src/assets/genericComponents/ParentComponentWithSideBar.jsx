@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Header } from "./Header";
 import Sidebar from "./SideBar";
+import PropTypes from "prop-types";
 
 export function ParentComponentWithSideBar({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -21,4 +22,8 @@ export function ParentComponentWithSideBar({ children }) {
       </div>
     </div>
   );
+}
+
+ParentComponentWithSideBar.propTypes = {
+  children: PropTypes.node.isRequired,
 }

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import MaterialReactTable from "material-react-table";
+import {MaterialReactTable} from "material-react-table";
 import { useRef, useState } from "react";
 
 const StyledMaterialReactTable = styled(MaterialReactTable)`
@@ -11,7 +11,7 @@ const StyledMaterialReactTable = styled(MaterialReactTable)`
   }
 `;
 
-export default function Table({ columns, data, ...props }) {
+export default function MyTable({ columns, data, ...props }) {
   const [sorting, setSorting] = useState([]);
   const tableInstanceRef = useRef(null);
 
@@ -66,7 +66,7 @@ export default function Table({ columns, data, ...props }) {
   );
 }
 
-Table.propTypes = {
+MyTable.propTypes = {
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -91,7 +91,7 @@ Table.propTypes = {
   }),
 };
 
-Table.defaultProps = {
+MyTable.defaultProps = {
   enableRowSelection: true,
   enableTopToolbar: false,
   enableColumnFilters: false,

@@ -1,7 +1,7 @@
 // Sidebar.jsx
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { SidebarData } from './SideBarData';
+import PropTypes from 'prop-types';
 
 export default function Sidebar({ isOpen }) {
   const location = useLocation();
@@ -58,4 +58,8 @@ export default function Sidebar({ isOpen }) {
       </nav>
     </aside>
   );
+}
+
+Sidebar.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
 }

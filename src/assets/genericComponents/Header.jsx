@@ -1,6 +1,8 @@
 // Header.jsx
 import { FaBars } from 'react-icons/fa';
 import { SignOut } from './SignOut';
+import PropTypes from 'prop-types';
+import { IMAGES } from '../images';
 
 
 export function Header({ toggleSidebar }) {
@@ -15,7 +17,7 @@ export function Header({ toggleSidebar }) {
             <FaBars className="w-6 h-6" />
           </button>
           <img
-            src="/api/placeholder/40/40"
+            src={IMAGES.PROFILE}
             alt="Logo"
             className="h-10 w-auto"
           />
@@ -24,7 +26,7 @@ export function Header({ toggleSidebar }) {
         <div className="flex items-center space-x-4">
           <div className="flex items-center space-x-3">
             <img
-              src="/api/placeholder/32/32"
+              src={IMAGES.PROFILE}
               alt="Profile"
               className="h-8 w-8 rounded-full"
             />
@@ -37,4 +39,8 @@ export function Header({ toggleSidebar }) {
       </div>
     </header>
   );
+}
+
+Header.propTypes ={
+  toggleSidebar: PropTypes.func.isRequired,
 }
