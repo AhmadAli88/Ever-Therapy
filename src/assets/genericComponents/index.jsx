@@ -6,4 +6,4 @@ export * from "./SignOut";
 export * from "./SideBar";
 export * from "./Header";
 export * from "./Notification";
-export * from "./Pagination";
+// export * from "./Pagination";

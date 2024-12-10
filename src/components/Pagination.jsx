@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactPaginate from "react-paginate";
 export function PaginationComponent(props) {
   const [active, setActive] = useState(props && props.page ? props.page : 0);
@@ -33,3 +33,8 @@ export function PaginationComponent(props) {
     </div>
   );
 }
+PaginationComponent.defaultProps = {
+  page: 0,
+  totalNumber: 0,
+  pageChange: () => {},
+};

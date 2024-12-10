@@ -13,8 +13,11 @@ import MuiTextField from '../components/TextField';
 import { MdOutlineHome, MdOutlineMailOutline } from 'react-icons/md';
 import MuiBreadcrumbs from '../components/Breadcrumbs';
 import { Link } from 'react-router';
+import { PaginationComponent } from '../components/Pagination';
 
 const Dashboard = () => {
+  const itemsPerPage = 2;
+  const [currentPage, setCurrentPage] = useState(0); // Add currentPage state
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [rowData, setRowData] = useState('');
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -82,6 +85,14 @@ const Dashboard = () => {
     },
   ];
 
+  const paginatedData = data.slice(
+    currentPage * itemsPerPage,
+    (currentPage + 1) * itemsPerPage
+  );
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page - 1); // ReactPaginate is 0-based; adjust for 1-based display
+  };
   const handleOpenUserMenu = (event) => {
     event.stopPropagation();
     setAnchorElUser(event.currentTarget);
@@ -216,41 +227,48 @@ const Dashboard = () => {
             </Button>
           </div>
         </div>
-
-        <MyTable
-          columns={columns}
-          data={data}
-          enableRowSelection={false}
-          renderRowActions={({ row }) => (
-            <IconButton
-              disableRipple={true}
-              size='large'
-              aria-label='account of current user'
-              aria-haspopup='true'
-              onClick={(event) => {
+        <div>
+          <MyTable
+            columns={columns}
+            data={paginatedData}
+            enableRowSelection={false}
+            renderRowActions={({ row }) => (
+              <IconButton
+                disableRipple={true}
+                size='large'
+                aria-label='account of current user'
+                aria-haspopup='true'
+                onClick={(event) => {
+                  setRowData(row?.original);
+                  handleOpenUserMenu(event);
+                }}
+                role='button'
+                tabIndex='0'
+                onKeyDown={(e) => {
+                  e.stopPropagation();
+                }}
+                color='inherit'
+              >
+                <MoreVertIcon />
+              </IconButton>
+            )}
+            muiTableBodyRowProps={({ row }) => ({
+              onClick: () => {
                 setRowData(row?.original);
-                handleOpenUserMenu(event);
-              }}
-              role='button'
-              tabIndex='0'
-              onKeyDown={(e) => {
-                e.stopPropagation();
-              }}
-              color='inherit'
-            >
-              <MoreVertIcon />
-            </IconButton>
-          )}
-          muiTableBodyRowProps={({ row }) => ({
-            onClick: () => {
-              setRowData(row?.original);
-              // setDetailsOpen(true);
-            },
-            sx: {
-              cursor: 'pointer',
-            },
-          })}
-        />
+                // setDetailsOpen(true);
+              },
+              sx: {
+                cursor: 'pointer',
+              },
+            })}
+          />
+          <PaginationComponent
+            page={currentPage} // Pass current page
+            totalNumber={Math.ceil(data.length / itemsPerPage)} // Calculate total pages
+            pageChange={handlePageChange} // Handle page change
+          />
+        </div>
+
         <StyledMenu
           id='menu-appbar'
           anchorEl={anchorElUser}
