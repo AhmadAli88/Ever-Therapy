@@ -14,6 +14,7 @@ import { MdOutlineHome, MdOutlineMailOutline } from 'react-icons/md';
 import MuiBreadcrumbs from '../components/Breadcrumbs';
 import { Link } from 'react-router';
 import { PaginationComponent } from '../components/Pagination';
+import PaginationEntries from '../components/PaginationEntries';
 
 const Dashboard = () => {
   const itemsPerPage = 2;
@@ -262,11 +263,17 @@ const Dashboard = () => {
               },
             })}
           />
-          <PaginationComponent
-            page={currentPage} // Pass current page
-            totalNumber={Math.ceil(data.length / itemsPerPage)} // Calculate total pages
-            pageChange={handlePageChange} // Handle page change
-          />
+          <div className='flex justify-between paginationEntries'>
+            <PaginationEntries
+              currentPage={currentPage}
+              totalNumber={Math.ceil(data.length / itemsPerPage)}
+            />
+            <PaginationComponent
+              page={currentPage} // Pass current page
+              totalNumber={Math.ceil(data.length / itemsPerPage)} // Calculate total pages
+              pageChange={handlePageChange} // Handle page change
+            />
+          </div>
         </div>
 
         <StyledMenu

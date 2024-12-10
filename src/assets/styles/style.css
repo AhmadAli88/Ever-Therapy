@@ -1,49 +1,73 @@
 * {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 .parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
-    border-radius: 50px !important;
+  border-radius: 50px !important;
 }
-.parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root{
-    border-radius: 50px !important;
+.parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root {
+  border-radius: 50px !important;
 }
-.checkbox_spacing{
-    padding-left: 0 !important;
+.checkbox_spacing {
+  padding-left: 0 !important;
 }
 /* .custom_height{
     height: calc(100vh - 300px);
 } */
- @media only screen and (max-width: 768px) {
-    .parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root{
-        height: 40px;
-    }
-    
-.parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
+@media only screen and (max-width: 768px) {
+  .parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root {
     height: 40px;
-}
+  }
+
+  .parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 40px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
-    .parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root{
-        height: 45px;
-    }
-    
-.parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
+  .parent_Field .css-4bojcr-MuiInputBase-root-MuiOutlinedInput-root {
     height: 45px;
-}
-}
-.parent_Field .css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input{
-    height:10px;
-}
-.link_custom_layout{
-    display: flex !important;
+  }
 
+  .parent_Field .css-ot336b-MuiInputBase-root-MuiOutlinedInput-root {
+    height: 45px;
+  }
+}
+.parent_Field .css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input {
+  height: 10px;
+}
+.link_custom_layout {
+  display: flex !important;
+}
+.custom_pagination {
+  width: 200px;
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
+.custom_pagination .page-item {
+  background: #ff6060;
+  color: white;
+  border-radius: 5px;
+  padding: 3px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  bottom: 0rem;
+  z-index: 99999;
+  right: 30px;
+}
+.paginationEntries {
+  position: relative !important;
+  bottom: 3rem !important;
+  z-index: 99999 !important;
+  left: 20px;
 }
