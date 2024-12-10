@@ -41,6 +41,9 @@ Button.propTypes = {
   height: PropTypes.string,
   width: PropTypes.string,
   children: PropTypes.node,
+  display: PropTypes.string,
+  justifyContent: PropTypes.string,
+  alignItems: PropTypes.string
 };
 Button.defaultProps = {
   backgroundColor: '#007BFF',
@@ -51,6 +54,7 @@ Button.defaultProps = {
   margin: '0',
   height: 'auto',
   width: 'auto',
+  
 };
 
 export default Button;

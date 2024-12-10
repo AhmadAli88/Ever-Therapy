@@ -9,6 +9,8 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
+import MuiTextField from '../components/TextField';
+import { MdOutlineMailOutline } from 'react-icons/md';
 
 const Dashboard = () => {
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -154,13 +156,32 @@ const Dashboard = () => {
   return (
     <div className='mt-[4rem]'>
       <>
-        <div className='flex justify-end items-end'>
+        <div className='flex justify-end items-end gap-4'>
+          <MuiTextField
+            width='100px'
+            type='email'
+            label='Email'
+            variant='outlined'
+            icon={<MdOutlineMailOutline size={20} />}
+            adornmentPosition='start'
+          />
+          {/* <MuiTextField
+        type="password"
+        label="Password"
+        variant="filled"
+        icon={<MdOutlineMailOutline size={20} />}
+        adornmentPosition="end"
+      /> */}
+
           <Button
-            className='flex justify-center items-center'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
             backgroundColor='#FBBE84'
-            width='150px'
+            width='130px'
             borderRadius='50px'
-            height='30px'
+            height='35px'
+            fontSize='14px'
           >
             Add Patient
           </Button>
