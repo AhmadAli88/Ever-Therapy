@@ -43,3 +43,7 @@
 .parent_Field .css-2u11ia-MuiInputBase-input-MuiOutlinedInput-input{
     height:10px;
 }
+.link_custom_layout{
+    display: flex !important;
+
+}

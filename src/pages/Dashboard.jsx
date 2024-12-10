@@ -10,13 +10,38 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Button from '../components/Button';
 import MuiTextField from '../components/TextField';
-import { MdOutlineMailOutline } from 'react-icons/md';
+import { MdOutlineHome, MdOutlineMailOutline } from 'react-icons/md';
+import MuiBreadcrumbs from '../components/Breadcrumbs';
+import { Link } from 'react-router';
 
 const Dashboard = () => {
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [rowData, setRowData] = useState('');
   const [anchorElUser, setAnchorElUser] = useState(null);
-
+  const breadcrumbs = [
+    // <Link
+    //   key='1'
+    //   underline='hover'
+    //   color='inherit'
+    //   href='/'
+    //   className='link_custom_layout'
+    // >
+    //   <MdOutlineHome size={20} style={{ marginRight: 4 }} />
+    //   Home
+    // </Link>,
+    <Link
+      key='2'
+      underline='hover'
+      color='inherit'
+      href='/patients'
+      className='font-xl'
+    >
+      Patient
+    </Link>,
+    <Typography key='3' color='text.primary' className='font-xl'>
+      Patients List
+    </Typography>,
+  ];
   // Sample data array
   const data = [
     {
@@ -152,39 +177,44 @@ const Dashboard = () => {
       },
     },
   ];
-
+  const handleBreadcrumbClick = (item, index) => {
+    console.log(`Breadcrumb clicked: ${item} at index ${index}`);
+  };
   return (
     <div className='mt-[4rem]'>
       <>
-        <div className='flex justify-end items-end gap-4'>
-          <MuiTextField
-            width='100px'
-            type='email'
-            label='Email'
-            variant='outlined'
-            icon={<MdOutlineMailOutline size={20} />}
-            adornmentPosition='start'
+        <div className='flex justify-between items-center gap-4'>
+          <MuiBreadcrumbs
+            separator='>'
+            fontSize='small'
+            items={breadcrumbs}
+            onClick={handleBreadcrumbClick}
+            activeLast={true}
           />
-          {/* <MuiTextField
-        type="password"
-        label="Password"
-        variant="filled"
-        icon={<MdOutlineMailOutline size={20} />}
-        adornmentPosition="end"
-      /> */}
+          <div className='flex gap-2'>
+            <MuiTextField
+              height='15px'
+              width='150px'
+              type='email'
+              label='Email'
+              variant='outlined'
+              icon={<MdOutlineMailOutline size={20} />}
+              adornmentPosition='start'
+            />
 
-          <Button
-            display='flex'
-            justifyContent='center'
-            alignItems='center'
-            backgroundColor='#FBBE84'
-            width='130px'
-            borderRadius='50px'
-            height='35px'
-            fontSize='14px'
-          >
-            Add Patient
-          </Button>
+            <Button
+              display='flex'
+              justifyContent='center'
+              alignItems='center'
+              backgroundColor='#FBBE84'
+              width='130px'
+              borderRadius='50px'
+              height='43px'
+              fontSize='14px'
+            >
+              Add Patient
+            </Button>
+          </div>
         </div>
 
         <MyTable
